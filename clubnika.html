@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клубника</title>
+    <style>
+        /* Основные стили */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #ff5a5f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        /* Навигация */
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+        }
+
+        /* Контент */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        /* Стили для вкладок */
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #333;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .tab:hover {
+            background-color: #e7e7e7;
+        }
+
+        /* Стили для контента */
+        .content h2 {
+            color: #ff5a5f;
+        }
+
+        .content p {
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Все о Клубнике</h1>
+</header>
+
+<nav>
+    <a href="#home">Главная</a>
+    <a href="#about">О клубнике</a>
+    <a href="#contact">Контакты</a>
+</nav>
+
+<div class="container">
+    <div class="tabs">
+        <div class="tab" onclick="showTab('varieties')">Разновидности</div>
+        <div class="tab" onclick="showTab('origin')">Место рождения</div>
+        <div class="tab" onclick="showTab('vitamins')">Витамины</div>
+        <div class="tab" onclick="showTab('benefits')">Польза</div>
+    </div>
+
+    <div id="varieties" class="content active">
+        <h2>Разновидности клубники</h2>
+        <p>Существует множество сортов клубники, включая такие как "Альба", "Елизавета", "Камароза" и другие. Каждая из них имеет уникальные вкусовые и текстурные характеристики.</p>
+    </div>
+
+    <div id="origin" class="content">
+        <h2>Место рождения клубники</h2>
+        <p>Клубника родом из Северной Америки, но сегодня её выращивают в разных уголках мира, включая Европу, Азию и Южную Америку.</p>
+    </div>
+
+    <div id="vitamins" class="content">
+        <h2>Витамины клубники</h2>
+        <p>Клубника богата витамином C, антиоксидантами и клетчаткой. Она помогает укреплять иммунную систему и поддерживает здоровье кожи.</p>
+    </div>
+
+    <div id="benefits" class="content">
+        <h2>Польза клубники</h2>
+        <p>Клубника улучшает пищеварение, способствует снижению веса, улучшает здоровье сердца и обладает противовоспалительными свойствами.</p>
+    </div>
+</div>
+
+<script>
+    // Функция для переключения вкладок
+    function showTab(tabName) {
+        var contents = document.querySelectorAll('.content');
+        var tabs = document.querySelectorAll('.tab');
+        
+        // Скрыть все вкладки
+        contents.forEach(function(content) {
+            content.classList.remove('active');
+        });
+        
+        // Удалить активный стиль с всех вкладок
+        tabs.forEach(function(tab) {
+            tab.style.backgroundColor = '#f1f1f1';
+        });
+        
+        // Показать выбранную вкладку
+        document.getElementById(tabName).classList.add('active');
+        
+        // Изменить стиль активной вкладки
+        var activeTab = Array.from(tabs).find(function(tab) {
+            return tab.innerText.toLowerCase() === tabName;
+        });
+        activeTab.style.backgroundColor = '#ff5a5f';
+    }
+</script>
+
+</body>
+</html>
